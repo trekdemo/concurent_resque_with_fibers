@@ -1,19 +1,31 @@
 GIT
-  remote: git://github.com/jonhyman/em-resque.git
-  revision: 62db265eaa2b03c3ce4ee3d674e6b7859f196ccc
+  remote: git://github.com/alexkwolfe/em-synchrony.git
+  revision: 331b91434d59bad705c75658e21086cfe383f5e5
+  ref: 331b91434d59bad705c75658e21086cfe383f5e5
+  specs:
+    em-synchrony (1.0.3)
+      eventmachine (>= 1.0.0.beta.1)
+
+PATH
+  remote: vendor/gems/em-resque
   specs:
     em-resque (1.1.0)
-      em-hiredis (~> 0.1.0)
+      em-hiredis (~> 0.1)
       em-synchrony (~> 1.0.0)
       resque (~> 1.2)
 
 GEM
   remote: https://rubygems.org/
   specs:
-    em-hiredis (0.1.1)
+    columnize (0.3.6)
+    debugger (1.6.1)
+      columnize (>= 0.3.1)
+      debugger-linecache (~> 1.2.0)
+      debugger-ruby_core_source (~> 1.2.3)
+    debugger-linecache (1.2.0)
+    debugger-ruby_core_source (1.2.3)
+    em-hiredis (0.2.1)
       hiredis (~> 0.4.0)
-    em-synchrony (1.0.3)
-      eventmachine (>= 1.0.0.beta.1)
     eventmachine (1.0.3)
     haml (4.0.3)
       tilt
@@ -47,7 +59,11 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  debugger
+  em-hiredis
   em-resque!
+  em-synchrony!
+  eventmachine
   haml
   hiredis
   rake

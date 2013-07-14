@@ -1,13 +1,22 @@
 require 'bundler/setup'
 require 'sinatra'
+require_relative './lib/async_workers/search_job.rb'
 
 get '/' do
   haml :form
 end
 
 post '/' do
-  # TODO: Create a new task
+  words = params['words'].split
+  puts "Words for searching #{words.inspect}"
+
+  create_job(words)
+
   redirect '/'
+end
+
+def create_job(words)
+  Resque.enqueue(SearchJob, words)
 end
 
 
