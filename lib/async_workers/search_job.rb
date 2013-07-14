@@ -4,7 +4,9 @@ class SearchJob
   @queue = :remote
 
   def self.perform(words)
-    puts "Create workers for #{words}"
+    print Time.now
+    puts " >> Create workers for #{words}"
+    EM::Synchrony.sleep(2)
     words.each { |word| Resque.enqueue(GoogleSearchJob, word) }
   end
 
